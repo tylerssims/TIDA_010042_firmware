@@ -2,7 +2,10 @@
  * main.c                                                                                                 *
  *                                                                                                        *
  *  Created on: Jun 25, 2018                                                                              *
- *      Author: a0233200                                                                                  *
+ *      Author: a0233200
+ * 
+ *  Modified on: Auguest 3, 2022
+ *      Author: tylersimspdx@gmail.com                                                                                  *
  *                                                                                                        *
  * Copyright (c) 2018, Texas Instruments Incorporated                                                     *
  * All rights reserved.                                                                                   *
@@ -78,12 +81,12 @@
 //-----------------------------------------------------------------------------------------//
 
 //-------------------------------User Settings---------------------------------------------//
-//#define USE_FLOAT   // Uncomment to use floating-point calculations
+#define USE_FLOAT   // Uncomment to use floating-point calculations
 
 // MAKE SURE ONLY ONE OF THE FOLLOWING IS UNCOMMENTED
-//#define SYS12       // Uncomment if using 12-V battery system
+#define SYS12       // Uncomment if using 12-V battery system
 //#define SYS24       // Uncomment if using 24-V battery system
-#define SYS48       // Uncomment if using 48-V battery system
+//#define SYS48       // Uncomment if using 48-V battery system
 //-----------------------------------------------------------------------------------------//
 
 #define BUCK_DISABLE    TD0CCTL1 = TD0CCTL2 = OUTMOD_0;\
@@ -109,7 +112,7 @@
 #define REF_INST_PROT_COUNTER 2 //Protection running with 2 sample average
 
 #ifdef USE_FLOAT
-#define PANEL_UPPER_LIMIT       60.0    // Maximum panel voltage of 60V
+#define PANEL_UPPER_LIMIT       22.4    // Maximum panel voltage of 60V
 #define MIN_BATTERY_CURRENT     0.0     // Minimum battery current of 0.5A (change as needed for battery)
 #else
 #define PANEL_UPPER_LIMIT       830     // Maximum panel voltage of 60V
@@ -211,14 +214,14 @@ uint16_t    REF_Battery_Charge_Current_State;
 
 /**********************Needs to be changed with different Batteries*******************************************/
 #ifdef USE_FLOAT
-const float CC_LIMIT           =   20.0;        // Set the maximum charging current
+const float CC_LIMIT           =   2.8;        // Set the maximum charging current
 
 #ifdef SYS12
 // Typical battery threshold values             // System Voltage   | 12V       | 24V       | 48V       ||
-const float CC_TO_CV_LIMIT     =   12;        //                  | 14.2V       | 28.4V     | 56.8V     ||
-const float FLOAT_VOLTAGE      =   13.8;        //                  | 13.8V     | 27.6V     | 55.2V     ||
-const float BATTERY_CUTOFF     =   10.2;        //                  | 10.2V     | 20.4V     | 40.8V     ||
-const float BATTERY_RECONNECT  =   11.2;        //                  | 11.2V     | 22.4V     | 44.8V     ||
+const float CC_TO_CV_LIMIT     =   20.50;        //                  | 14.2V       | 28.4V     | 56.8V     ||
+const float FLOAT_VOLTAGE      =   20.75;        //                  | 13.8V     | 27.6V     | 55.2V     ||
+const float BATTERY_CUTOFF     =   12.75;        //                  | 10.2V     | 20.4V     | 40.8V     ||
+const float BATTERY_RECONNECT  =   14.00;        //                  | 11.2V     | 22.4V     | 44.8V     ||
 #endif
 
 #ifdef SYS24
