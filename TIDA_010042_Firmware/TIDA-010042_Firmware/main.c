@@ -113,7 +113,7 @@
 
 #ifdef USE_FLOAT
 #define PANEL_UPPER_LIMIT       22.4    // Maximum panel voltage of 60V
-#define MIN_BATTERY_CURRENT     0.0     // Minimum battery current of 0.5A (change as needed for battery)
+#define MIN_BATTERY_CURRENT     0.5     // Minimum battery current of 0.5A (change as needed for battery)
 #else
 #define PANEL_UPPER_LIMIT       830     // Maximum panel voltage of 60V
 #define MIN_BATTERY_CURRENT     3       // Minimum battery current of 0.5A (change as needed for battery)
