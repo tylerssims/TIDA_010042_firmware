@@ -1,2 +1,2 @@
-# TIDA010042_firmware
+# TIDA010042
 MPPT solar charge controller firmware
