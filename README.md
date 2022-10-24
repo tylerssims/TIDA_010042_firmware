@@ -1,2 +1,2 @@
 # TIDA010042
-MPPT solar charge controller firmware
+Modified MPPT solar charge controller firmware (from Texas Instuments TIDA-010042 reference design).
